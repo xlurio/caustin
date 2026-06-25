@@ -1,0 +1,4 @@
+/home/lucas/Projects/caustin/build/CMakeFiles/caustin.dir
+/home/lucas/Projects/caustin/build/CMakeFiles/test.dir
+/home/lucas/Projects/caustin/build/CMakeFiles/edit_cache.dir
+/home/lucas/Projects/caustin/build/CMakeFiles/rebuild_cache.dir
