@@ -4,7 +4,9 @@
 #include <stdbool.h>
 #include <stddef.h>
 
-bool has_py_extension(const char *path);
+struct StringList;
+
+bool path_has_suffix(const char *path, const struct StringList *suffixes);
 bool count_lines(const char *path, long *line_count);
 const char *to_relative_path(const char *abs_path, const char *root_abs, size_t root_abs_len);
 

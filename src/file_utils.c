@@ -3,9 +3,21 @@
 #include <stdio.h>
 #include <string.h>
 
-bool has_py_extension(const char *path) {
+
+#include "string_list.h"
+
+bool path_has_suffix(const char *path, const struct StringList *suffixes) {
 	size_t len = strlen(path);
-	return len >= 3 && strcmp(path + len - 3, ".py") == 0;
+	size_t i;
+
+	for (i = 0; i < suffixes->count; i++) {
+		size_t suffix_len = strlen(suffixes->items[i]);
+		if (len >= suffix_len && strcmp(path + len - suffix_len, suffixes->items[i]) == 0) {
+			return true;
+		}
+	}
+
+	return false;
 }
 
 bool count_lines(const char *path, long *line_count) {
