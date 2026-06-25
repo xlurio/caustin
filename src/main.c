@@ -85,7 +85,7 @@ static int scan_callback(const char *fpath, const struct stat *sb, int typeflag,
 			lines,
 			g_ctx.max_lines
 		);
-		g_ctx.violations++;
+		return 1;
 	}
 
 	return 0;
@@ -162,7 +162,6 @@ int main(int argc, char **argv) {
 
 	walk_result = nftw(root_abs, scan_callback, 32, FTW_PHYS);
 	if (walk_result != 0 && !g_ctx.read_error) {
-		fprintf(stderr, "error: directory traversal failed: %s\n", strerror(errno));
 		free(root_abs);
 		string_list_free(&g_ctx.excludes);
 		return EXIT_RUNTIME;
