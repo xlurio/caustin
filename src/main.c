@@ -85,7 +85,7 @@ static int scan_callback(const char *fpath, const struct stat *sb, int typeflag,
 			lines,
 			g_ctx.max_lines
 		);
-		return 1;
+		g_ctx.violations++;
 	}
 
 	return 0;
